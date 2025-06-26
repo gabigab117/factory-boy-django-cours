@@ -4,7 +4,7 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from blog.factories import UserFactory, AuthorFactory, ArticleFactory
 
 
-@pytest.fixture
+@pytest.fixture(autouse=True)
 def media_root(tmp_path):
     """
     Fixture pour rediriger MEDIA_ROOT vers un répertoire temporaire,
@@ -24,17 +24,17 @@ def media_root(tmp_path):
 
 
 @pytest.fixture
-def user(media_root):
+def user():
     user = UserFactory()
     return user
 
 
 @pytest.fixture
-def article(media_root):
+def article():
     article = ArticleFactory()
     return article
 
 
 @pytest.fixture
-def article_factory(media_root):
+def article_factory():
     return ArticleFactory

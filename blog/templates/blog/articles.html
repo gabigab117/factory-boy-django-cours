@@ -8,7 +8,6 @@
         {% for article in articles %}
             <li>
                 <h2>{{ article.title }}</h2>
-                <p>{{ article.content|truncatewords:30 }}</p>
                 <p><strong>Author:</strong> {{ article.author.user.username }}</p>
                 <p><strong>Published on:</strong> {{ article.published_at }}</p>
                 <p>{{ article.get_read_time }} min read</p>
